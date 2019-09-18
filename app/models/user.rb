@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :user_teams
   has_many :teams, through: :user_teams
+  has_many :team_patients, through: :teams
+  has_many :patients, through: :team_patients
 end
