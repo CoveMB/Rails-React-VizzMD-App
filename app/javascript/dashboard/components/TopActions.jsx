@@ -10,8 +10,8 @@ const TopActions = () => {
         <BodySelect />
       </div>
       <div className="print-n-save">
-        <PrintNSaveBtn function="save" />
         <PrintNSaveBtn function="print" />
+        <PrintNSaveBtn function="save" />
       </div>
     </Fragment>
 
