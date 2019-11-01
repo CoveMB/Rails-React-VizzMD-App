@@ -1,6 +1,6 @@
 .searchWrapper{
   width: 75%;
-  margin: 30px auto 30px auto;
+  margin: 30px 0 30px auto;
   background-color: $vizzzBlue;
   padding: 12px;
   border-radius: 6px;
@@ -36,4 +36,19 @@
 .btn-add:hover{
   background-color: $vizzzBlue;
   color: white;
+}
+
+.form-inputs{
+  width: 80%;
+  margin: 20px auto 20px auto;
+}
+
+.signIn-title{
+  margin: 20px auto 20px auto;
+  text-align: center;
+}
+
+.sign-Inbtn{
+  margin-right: 10%;
+  text-align: right;
 }

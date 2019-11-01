@@ -24,10 +24,57 @@
   width: 90%;
   justify-content: space-between;
   margin: 20px auto 20px auto;
+  align-items:flex-start;
+}
+
+.dashboard-row-search{
+  color: $vizzzBlue;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 20px auto 20px auto;
   align-items: center;
 }
 
 .welcome-text{
   text-align: center;
   width: 20%;
+}
+
+.patient-list-wrapper{
+  background: -webkit-linear-gradient(333deg, #003C89 67.31, rgba(0, 60, 137, 0.87) 85.42);
+  background: -o-linear-gradient(333deg, #003C89 67.31, rgba(0, 60, 137, 0.87) 85.42);
+  background: linear-gradient(209.79deg, #003C89 67.31%, rgba(0, 60, 137, 0.87) 85.42%);
+  box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  width: 75%;
+  padding: 15px;
+}
+
+.patient-list-link{
+  text-align: center;
+  color: $white;
+  font-size: 25px;
+}
+
+.patient-list-link:hover{
+  color: $white;
+}
+
+.patient-list-list{
+  // text-align: center;
+  height: 38px;
+  width: 100%;
+  color: $white;
+}
+
+.patient-separator{
+  width: 80%;
+  border-bottom: 1px solid $white;
+}
+
+.patient-icon{
+  border: none;
+  font-size: 25px;
+  margin: 0 20px 0 10%;
 }

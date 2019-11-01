@@ -1,4 +1,4 @@
-<div class="dashboard-row">
+<div class="dashboard-row-search">
   <h2 class="welcome-text">Welcome <%= current_user.name %></h2>
   <div class="searchWrapper">
     <%= form_tag user_path(current_user), method: :get, class: "form-flex" do %>
@@ -20,10 +20,11 @@
     <%= form.submit "New Patient", class: "btn btn-primary btn-add"%>
     <% end %>
   </div>
-  <div>
-    <uL>
+  <div class="patient-list-wrapper">
+    <ul style="list-style-type:none">
       <% @patients.each do |patient| %>
-      <li><%= link_to patient.hospital_patient_id, user_patient_path(current_user, patient) %></li>
+      <li class="patient-list-list"><i class="far fa-id-card patient-icon"></i><%= link_to patient.hospital_patient_id, user_patient_path(current_user, patient), class: "patient-list-link" %></li>
+      <hr class="patient-separator">
       <% end %>
     </ul>
   </div>
