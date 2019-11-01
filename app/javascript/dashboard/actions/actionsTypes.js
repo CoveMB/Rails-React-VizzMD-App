@@ -1,0 +1,5 @@
+export const FLIP_BODY = 'FLIP_BODY';
+export const MUSCLE_SELECTED = 'MUSCLE_SELECTED';
+export const MUSCLE_FORCE_CHANGED = 'MUSCLE_FORCE_CHANGED';
+export const PAGE_LOADED = "PAGE_LOADED";
+export const SAVE_PATIENT = "SAVE_PATIENT";

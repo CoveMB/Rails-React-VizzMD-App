@@ -1,0 +1,24 @@
+.gradient-square {
+  width: 85%;
+  margin: -50px auto 20px auto;
+  padding: 20px 30px 20px 30px;
+  // height: 70px;
+  background: linear-gradient(90deg, #054086 0%, #1454a3 100%);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12), 0px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px 4px 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #F6FDFF;
+  z-index: 20;
+}
+
+.gradient-square-text {
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  color: #F6FDFF;
+}
+// background: linear-gradient(90deg, #404145 0%, #5a5e61 100%);

@@ -7,6 +7,7 @@ class CreatePatients < ActiveRecord::Migration[5.2]
       t.integer :weight
       t.string :gender
       t.text :notes
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

@@ -1,11 +1,10 @@
 class Patient < ApplicationRecord
-  has_many :team_patients
-  has_many :teams, through: :team_patients
+  belongs_to :user
+  has_many :bodies, dependent: :destroy
 
-  has_one :body
-  has_many :muscles, through: :body
-  has_many :nerves, through: :muscles
+  validates :hospital_patient_id, presence: true, uniqueness: true
 
-  has_many :traitments, through: :body
-  has_many :exercices, through: :traitments
+  before_create do
+    bodies << Body.new
+  end
 end

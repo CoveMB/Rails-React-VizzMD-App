@@ -3,23 +3,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
+import reducers from './reducers';
 
-// internal modules
-import App from './components/app';
+import muscles from './data/muscles';
 
-// State and reducers
-const reducers = combineReducers({
-  changeMe: (state = null, action) => state
-});
+import App from './components/App';
 
 const root = document.getElementById('root');
 
-if (root){
-  // render an instance of the component in the DOM
+const musclesToSet = JSON.parse(root.dataset.muscles).map((muscle) => {
+  return {...muscle, ...muscles[muscle.name]}
+});
+
+const initialState = { muscles: musclesToSet, patientId: root.dataset.patient, user: JSON.parse(root.dataset.user)[0]};
+
+if (root) {
   ReactDOM.render(
-    <Provider store={createStore(reducers)}>
+    <Provider store={createStore(reducers, initialState) }>
       <App />
     </Provider>,
-  root
+    root
   );
 }

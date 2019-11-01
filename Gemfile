@@ -11,6 +11,7 @@ gem 'rails', '5.2.3'
 gem 'redis'
 gem "aws-sdk-s3", require: false
 
+gem "simple_token_authentication"
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'

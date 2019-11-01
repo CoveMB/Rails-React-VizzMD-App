@@ -1,2 +1,5 @@
-<div>hi</div>
-<div id=root></div>
+<uL>
+<% current_user.patients.each do |patient| %>
+ <li><%= link_to patient.hospital_patient_id, user_patient_path(current_user, patient) %></li>
+<% end %>
+</ul>

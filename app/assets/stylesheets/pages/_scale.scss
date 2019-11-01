@@ -1,0 +1,55 @@
+.scale{
+  width: 15%;
+}
+
+.scale * {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+}
+
+.zero-force{
+  background-color: #FFFFFF;
+  fill: #FFFFFF;
+  color: black;
+}
+
+.one-force{
+  background-color: #EEF5CF;
+  fill: #EEF5CF;
+  color: black;
+}
+
+.two-force{
+  background-color: #E7D18B;
+  fill: #E7D18B;
+  color: black;
+}
+
+.three-force{
+  background-color: #E0AB69;
+  fill: #E0AB69;
+  color: black;
+}
+
+.four-force{
+  background-color: #D65B35;
+  fill: #D65B35;
+  color: black;
+}
+
+
+.five-force{
+  background-color: #CD000F;
+  fill: #CD000F;
+  color: black;
+}
+
+.scale-muscle-popup * {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 15px;
+}
