@@ -1,0 +1,39 @@
+.searchWrapper{
+  width: 75%;
+  margin: 30px auto 30px auto;
+  background-color: $vizzzBlue;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.btn-search{
+  background-color: white;
+  color: $vizzzBlue;
+}
+
+.btn-search:hover{
+  background-color: $vizzzBlue;
+  color: white;
+}
+
+.form-control{
+  margin-right: 10px;
+  height: 50px;
+}
+
+.form-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-add{
+  width: 80%;
+  background-color: white;
+  color: $vizzzBlue;
+  margin: 10px 10% 0 10%;
+}
+
+.btn-add:hover{
+  background-color: $vizzzBlue;
+  color: white;
+}

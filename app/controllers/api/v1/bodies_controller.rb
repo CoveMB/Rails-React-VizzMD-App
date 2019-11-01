@@ -4,6 +4,7 @@ class Api::V1::BodiesController <  Api::V1::BaseController
 
   def create
     @patient = Patient.find(params[:patient_id])
+    authorize @patient
     new_body = Body.new
     params[:muscles].each do |muscle|
       new_body.muscles << Muscle.new(
@@ -13,7 +14,10 @@ class Api::V1::BodiesController <  Api::V1::BaseController
       )
     end
     @patient.bodies << new_body
-    @patient.save!
-    authorize @patient
+    if @patient.save
+      render "api/v1/patients/show", status: :created
+    else
+      render_error
+    end
   end
 end

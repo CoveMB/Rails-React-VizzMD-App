@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
+import musclesOrigin from '../../data/muscles';
+
 import { savePatient } from '../../actions/index';
 
 const PrintNSaveBtn = (props) => {
@@ -18,6 +20,29 @@ const PrintNSaveBtn = (props) => {
   const user = useSelector((state) => {
     return state.user;
   });
+
+  const getFirstMuscleState = () => {
+    return JSON.parse(root.dataset.muscles).map((muscle) => {
+      return {...muscle, ...musclesOrigin[muscle.name]}
+    });
+  }
+
+  const saveDatabase = async () => {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
+    const response = await fetch(`/api/v1/users/${user.id}/patients/${patientId}/bodies`,
+    {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': csrfToken
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify({muscles: muscles})
+    });
+    const json = await response.json()
+    return json
+  }
 
   let id = "";
   let icon = "";
@@ -35,20 +60,13 @@ const PrintNSaveBtn = (props) => {
     id = "gta-save-btn";
     icon = faFilePdf;
     text = "Save ";
-    handleClickBtn = async () => {
-      const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
-      const response = await fetch(`/api/v1/users/${user.id}/patients/${patientId}/bodies`,
-      {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': csrfToken
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify({muscles: muscles})
-      });
-      console.log(response);
+    handleClickBtn = () => {
+      const firstMusclesState = getFirstMuscleState()
+      if (JSON.stringify(muscles) === JSON.stringify(firstMusclesState)){
+        alert("Unchanged values")
+      } else {
+        saveDatabase().then(json => console.log(json))
+      }
     };
   }
 

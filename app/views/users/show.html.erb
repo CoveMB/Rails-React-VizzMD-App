@@ -1,5 +1,30 @@
-<uL>
-<% current_user.patients.each do |patient| %>
- <li><%= link_to patient.hospital_patient_id, user_patient_path(current_user, patient) %></li>
-<% end %>
-</ul>
+<div class="dashboard-row">
+  <h2 class="welcome-text">Welcome <%= current_user.name %></h2>
+  <div class="searchWrapper">
+    <%= form_tag user_path(current_user), method: :get, class: "form-flex" do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a patient"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="dashboard-row">
+  <div class="new-patient-wrapper">
+    <h2 class="new-patient-header">ADD NEW PATIENT</h2>
+    <%= form_with model: @patient, local: true do |form| %>
+      <%= form.text_field :hospital_patient_id, class: "form-control",placeholder: "Patient's id" %>
+    <%= form.submit "New Patient", class: "btn btn-primary btn-add"%>
+    <% end %>
+  </div>
+  <div>
+    <uL>
+      <% @patients.each do |patient| %>
+      <li><%= link_to patient.hospital_patient_id, user_patient_path(current_user, patient) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

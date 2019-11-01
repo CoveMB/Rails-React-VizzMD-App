@@ -11,13 +11,13 @@ import App from './components/App';
 
 const root = document.getElementById('root');
 
-const musclesToSet = JSON.parse(root.dataset.muscles).map((muscle) => {
-  return {...muscle, ...muscles[muscle.name]}
-});
-
-const initialState = { muscles: musclesToSet, patientId: root.dataset.patient, user: JSON.parse(root.dataset.user)[0]};
-
 if (root) {
+  const musclesToSet = JSON.parse(root.dataset.muscles).map((muscle) => {
+    return {...muscle, ...muscles[muscle.name]}
+  });
+
+  const initialState = { muscles: musclesToSet, patientId: root.dataset.patient, user: JSON.parse(root.dataset.user)[0]};
+
   ReactDOM.render(
     <Provider store={createStore(reducers, initialState) }>
       <App />
