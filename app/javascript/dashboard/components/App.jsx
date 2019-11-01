@@ -10,9 +10,7 @@ import MusclesTable from '../containers/MusclesTable';
 const App = () => {
   return (
     <div className="app">
-      <div className="top-actions">
-        <TopActions />
-      </div>
+      <TopActions />
       <MusclePopUp />
       <div className="scale-body">
         <Scale />

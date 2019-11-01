@@ -6,10 +6,13 @@ import BodySelect from '../containers/body/BodySelect';
 const TopActions = () => {
   return (
     <Fragment>
-      <BodySelect />
+      <div className="top-actions">
+        <BodySelect />
+      </div>
       <PrintNSaveBtn function="save" />
       <PrintNSaveBtn function="print" />
     </Fragment>
+
   );
 };
 
