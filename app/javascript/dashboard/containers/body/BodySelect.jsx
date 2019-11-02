@@ -6,7 +6,7 @@ import { faUndo, faRedo } from '@fortawesome/free-solid-svg-icons';
 
 import { flipBody } from '../../actions/index';
 
-const BodySelect= (props) => {
+const bodySelect= (props) => {
   const handleBodyFlip = (event) => {
     if (event.target.innerText === " Back") {
       props.flipBody("back");
@@ -39,4 +39,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BodySelect);
+export default connect(mapStateToProps, mapDispatchToProps)(bodySelect);

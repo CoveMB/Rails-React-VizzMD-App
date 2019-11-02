@@ -1,18 +1,15 @@
 import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import Router from 'next/router';
 
-const HomeBtn = () => {
-  const goHome = () => {
-    Router.push("/");
+const homeBtn = (props) => {
+  const goBack = () => {
+    props.setPrinting(false);
   };
 
   return (
     <div className="reset">
-      <button className="btn btn-danger" onClick={goHome}>Back </button>
+      <button className="btn btn-danger" onClick={goBack}>Back </button>
     </div>
   );
 };
 
-export default HomeBtn;
+export default homeBtn;

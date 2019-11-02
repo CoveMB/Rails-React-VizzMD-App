@@ -1,0 +1,18 @@
+.timeline{
+  display: flex;
+  overflow-y: scroll;
+}
+
+.svg-timeline{
+  margin-right: 20px;
+  // border-right: 1px solid $vizzzBlue;
+}
+
+.timeline-date{
+  text-align: center;
+  padding-right: 40px;
+}
+
+.svg-body-date-timeline{
+  text-align: center;
+}

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-const App = () => {
+import Body from '../containers/body/Body';
+
+const App = (props) => {
+
   return (
-    <div className="app">
+    <div className="timeline scrollbarycustom">
+      {props.allBodiesMuscles.map((bodymuscles, index) => {
+        return <Body key={index} allBodiesMuscles={bodymuscles.muscles} bodyInfo={bodymuscles.body}/>;
+      })}
     </div>
   );
 };

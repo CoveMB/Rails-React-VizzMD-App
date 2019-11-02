@@ -7,7 +7,7 @@ import musclesOrigin from '../../../data/muscles';
 
 import { savePatient } from '../../actions/index';
 
-const PrintNSaveBtn = (props) => {
+const printNSaveBtn = (props) => {
 
   const muscles = useSelector((state) => {
     return state.muscles;
@@ -61,7 +61,10 @@ const PrintNSaveBtn = (props) => {
     icon = faPrint;
     text = "Print ";
     handleClickBtn = () => {
+      props.setPrinting(true);
+      setTimeout(() => {
       window.print();
+    }, 100);
     };
   } else if (props.function === "save") {
     id = "gta-save-btn";
@@ -85,4 +88,4 @@ const PrintNSaveBtn = (props) => {
 };
 
 
-export default PrintNSaveBtn;
+export default printNSaveBtn;

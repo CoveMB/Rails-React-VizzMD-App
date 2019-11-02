@@ -5,7 +5,7 @@ import * as typeformEmbed from '@typeform/embed';
 import Router from 'next/router';
 
 
-const TypeFormBtn = () => {
+const typeFormBtn = () => {
   const handleReview = (event) => {
     event.preventDefault();
     const popUp = typeformEmbed.makePopup(
@@ -30,5 +30,4 @@ const TypeFormBtn = () => {
     <button onClick={handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>
   );
 };
-// <FontAwesomeIcon icon={faComment} />
-export default TypeFormBtn;
+export default typeFormBtn;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Spinner = () => (
+const spinner = () => (
   <div className="sk-cube-grid">
     <div className="sk-cube sk-cube1" />
     <div className="sk-cube sk-cube2" />
@@ -15,4 +15,4 @@ const Spinner = () => (
 
 );
 
-export default Spinner;
+export default spinner;

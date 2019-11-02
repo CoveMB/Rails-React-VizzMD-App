@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { selectMuscle } from '../../actions/index';
 
-class BodyMusclesCouple extends Component {
-  shouldComponentUpdate(nextProps) {
-    return (this.props.muscleForce !== nextProps.muscleForce);
-  }
+const bodyMusclesCouple = (props) => {
 
-  muscleFillColor = () => {
-    switch (this.props.muscleForce) {
+  const muscleFillColor = () => {
+    switch (props.muscleForce) {
       case 1:
         return "#EEF5CF";
       case 2:
@@ -24,19 +21,17 @@ class BodyMusclesCouple extends Component {
       default:
         return "#FFFFFF";
     }
-  }
+  };
 
-  handleClickMuscle = (event) => {
+  const handleClickMuscle = (event) => {
     event.persist();
-    this.props.selectMuscle(event.target.getAttribute('id'));
-  }
+    props.selectMuscle(event.target.getAttribute('id'));
+  };
 
-  render() {
-    return (
-      <path id={this.props.muscleId} fill={this.muscleFillColor()} ref={(muscleSVG) => { this.muscleSVG = muscleSVG; }} onClick={this.handleClickMuscle} d={this.props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
-    );
-  }
-}
+  return (
+    <path id={props.muscleId} fill={muscleFillColor()} ref={(muscleSVG) => { muscleSVG = muscleSVG; }} onClick={handleClickMuscle} d={props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
+  );
+};
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
@@ -45,4 +40,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(null, mapDispatchToProps)(BodyMusclesCouple);
+export default connect(null, mapDispatchToProps)(bodyMusclesCouple);

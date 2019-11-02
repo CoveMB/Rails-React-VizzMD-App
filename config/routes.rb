@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only:[:show] do
     resources :patients, only:[:show, :create] do
-      resources :bodies, only:[ :index ]
+      resources :bodies, only:[ :index, :show ]
     end
   end
 

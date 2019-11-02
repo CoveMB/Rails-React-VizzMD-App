@@ -15,6 +15,10 @@
   #not-to-be-printed{
     display: none;
   }
+
+  #rotate{
+    transform: translateY(200px) rotate(-90deg);
+  }
 }
 
   #printComponent{

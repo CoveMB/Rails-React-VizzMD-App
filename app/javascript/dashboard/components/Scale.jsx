@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Scale = () => {
+const scale = () => {
   return (
     <div className="scale">
       <h2 className="zero-force">0</h2>
@@ -13,4 +13,4 @@ const Scale = () => {
   );
 };
 
-export default Scale;
+export default scale;

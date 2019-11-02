@@ -6,18 +6,24 @@ import muscles from '../data/muscles';
 
 import App from './components/App';
 
-const evolution = document.getElementById('root');
+const evolution = document.getElementById('evolution');
 
 if (evolution) {
-  const musclesToSet = JSON.parse(evolution.dataset.muscles).map((muscle) => {
-    return {...muscle, ...muscles[muscle.name]}
-  });
+  const userId = JSON.parse(evolution.dataset.user)[0].id
+  const dataBodies = JSON.parse(evolution.dataset.bodies).map((body) => {
+    const formatedMuscles = body.muscles.map((muscle) => {
+      return {...muscle, ...muscles[muscle.name]};
+    });
+    return {
+      body: {...body.body, userId: userId},
+      muscles:formatedMuscles }
+  });;
 
-  const initialState = { muscles: musclesToSet, patientId: evolution.dataset.patient, user: JSON.parse(evolution.dataset.user)[0]};
+  console.log(dataBodies);
 
   ReactDOM.render(
 
-      <App />,
-    root
+      <App allBodiesMuscles={dataBodies}/>,
+    evolution
   );
 }
