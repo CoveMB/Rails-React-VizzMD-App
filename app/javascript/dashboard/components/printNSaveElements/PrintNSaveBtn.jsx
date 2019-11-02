@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPrint, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faPrint, faSave } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
-import musclesOrigin from '../../data/muscles';
+import musclesOrigin from '../../../data/muscles';
 
 import { savePatient } from '../../actions/index';
 
@@ -21,10 +21,18 @@ const PrintNSaveBtn = (props) => {
     return state.user;
   });
 
-  const getFirstMuscleState = () => {
-    return JSON.parse(root.dataset.muscles).map((muscle) => {
+  const getInitialMuscleState = () => {
+    return JSON.parse(dashboard.dataset.muscles).map((muscle) => {
       return {...muscle, ...musclesOrigin[muscle.name]}
     });
+  }
+
+  const popUpResponseStatut = (response) => {
+    if(response.status === 201){
+      alert("Saved!")
+    } else {
+      alert("A problem occured!")
+    }
   }
 
   const saveDatabase = async () => {
@@ -40,8 +48,7 @@ const PrintNSaveBtn = (props) => {
       credentials: 'same-origin',
       body: JSON.stringify({muscles: muscles})
     });
-    const json = await response.json()
-    return json
+    return response
   }
 
   let id = "";
@@ -58,14 +65,16 @@ const PrintNSaveBtn = (props) => {
     };
   } else if (props.function === "save") {
     id = "gta-save-btn";
-    icon = faFilePdf;
+    icon = faSave;
     text = "Save ";
     handleClickBtn = () => {
-      const firstMusclesState = getFirstMuscleState()
+      const firstMusclesState = getInitialMuscleState()
       if (JSON.stringify(muscles) === JSON.stringify(firstMusclesState)){
         alert("Unchanged values")
       } else {
-        saveDatabase().then(json => console.log(json))
+        saveDatabase().then(response => {
+          popUpResponseStatut(response)
+        })
       }
     };
   }

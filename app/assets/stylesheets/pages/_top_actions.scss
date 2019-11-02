@@ -3,17 +3,14 @@
   margin: 0 0 0 0;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   height: 60px;
   width: 100%;
-  padding-left: 10%;
+  padding-left: 12%;
 }
 
 .patient-ref{
-  height: 20px;
-  width: 300px;
-  padding: 20px 0 0 28px;
-  overflow-wrap: break-word;
+  marging: 25px 0 0 35px;
 }
 
 .body-select{
@@ -27,4 +24,13 @@
   // display: flex;
   // width: 100%;
   // justify-content: space-between;
+}
+
+.patient-n-evolution{
+  display: flex;
+  justify-content: space-between;
+}
+
+.evolution-link{
+  marging: 35px 35px 0;
 }

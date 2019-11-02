@@ -5,23 +5,23 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import reducers from './reducers';
 
-import muscles from './data/muscles';
+import muscles from '../data/muscles';
 
 import App from './components/App';
 
-const root = document.getElementById('root');
+const dashboard = document.getElementById('dashboard');
 
-if (root) {
-  const musclesToSet = JSON.parse(root.dataset.muscles).map((muscle) => {
+if (dashboard) {
+  const musclesToSet = JSON.parse(dashboard.dataset.muscles).map((muscle) => {
     return {...muscle, ...muscles[muscle.name]}
   });
 
-  const initialState = { muscles: musclesToSet, patientId: root.dataset.patient, user: JSON.parse(root.dataset.user)[0]};
+  const initialState = { muscles: musclesToSet, patientId: dashboard.dataset.patient, user: JSON.parse(dashboard.dataset.user)[0]};
 
   ReactDOM.render(
     <Provider store={createStore(reducers, initialState) }>
       <App />
     </Provider>,
-    root
+    dashboard
   );
 }

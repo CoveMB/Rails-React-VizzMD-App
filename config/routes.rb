@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :patients, only:[:show, :create, :update]
+  resources :patients, only:[:create]
 
   resources :users, only:[:show] do
-    resources :patients, only:[:show, :create, :update]
+    resources :patients, only:[:show, :create] do
+      resources :bodies, only:[ :index ]
+    end
   end
 
   # API for React
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only:[] do
         resources :patients, only:[:show]do
-          resources :bodies, only:[ :show, :create, :update]
+          resources :bodies, only:[ :create ]
         end
       end
     end
