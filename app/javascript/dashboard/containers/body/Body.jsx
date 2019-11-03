@@ -5,9 +5,9 @@ import FaceBody from './FaceBody';
 const body = (props) => {
   const bodyParts = () => {
     if (props.body === "back") {
-      return <FaceBody svgViewBox="-100 0 1700 2840" svgHeight="900" svgWidth="600" bodySide="back" />;
+      return <FaceBody svgViewBox="0 25 1410 2890" svgHeight="830" svgWidth="400" bodySide="back" />;
     }
-    return <FaceBody svgViewBox="-100 0 1700 2830" svgHeight="900" svgWidth="600" bodySide="front" />;
+    return <FaceBody svgViewBox="0 60 1355 2690" svgHeight="830" svgWidth="400" bodySide="front" />;
   };
 
   return (
