@@ -4,13 +4,17 @@
 }
 
 .svg-timeline{
-  margin-right: 20px;
-  // border-right: 1px solid $vizzzBlue;
+  margin: 0 25px 0 25px;
+  display: flex;
 }
 
 .timeline-date{
   text-align: center;
-  padding-right: 40px;
+}
+
+.timeline-notes{
+  text-align: justify;
+  padding: 14px;
 }
 
 .svg-body-date-timeline{

@@ -1,6 +1,12 @@
+require 'date'
+
 class Body < ApplicationRecord
   belongs_to :patient
   has_many :muscles, dependent: :destroy
+
+  before_create do
+    self.date_data_capture = Time.now
+  end
 
   after_create do
     if muscles.empty?

@@ -15,12 +15,12 @@
 <div class="dashboard-row">
   <div class="new-patient-wrapper">
     <h2 class="new-patient-header">ADD NEW PATIENT</h2>
-    <%= form_with model: @patient, local: true do |form| %>
-      <%= form.text_field :hospital_patient_id, class: "form-control",placeholder: "Patient's id" %>
-    <%= form.submit "New Patient", class: "btn btn-primary btn-add"%>
+    <%= simple_form_for @patient do |form| %>
+      <%= form.input :hospital_patient_id, class: "form-control", placeholder: "Patient's id" %>
+    <%= form.button :submit, class: "btn btn-primary btn-add"%>
     <% end %>
   </div>
-  <div class="patient-list-wrapper">
+  <div class="patient-list-wrapper scrollbarxcustom">
     <ul style="list-style-type:none">
       <% @patients.each do |patient| %>
       <li class="patient-list-list"><i class="far fa-id-card patient-icon"></i><%= link_to patient.hospital_patient_id, user_patient_path(current_user, patient), class: "patient-list-link" %></li>

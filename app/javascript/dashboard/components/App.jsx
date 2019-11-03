@@ -4,6 +4,7 @@ import MusclePopUp from '../containers/MusclePopUp';
 import TopActions from './TopActions';
 import Scale from '../components/Scale';
 import Body from '../containers/body/Body';
+import NotesNTraitment from '../containers/NotesNTraitment'
 import Spinner from './Spinner'
 
 const PrintNSavePopUp = lazy(() => import('./printNSaveElements/PrintNSavePopUp'))
@@ -30,6 +31,7 @@ const App = (props) => {
             <div className="scale-body">
               <Scale />
               <Body />
+              <NotesNTraitment/>
             </div>
             <MusclesTable />
           </Fragment>}

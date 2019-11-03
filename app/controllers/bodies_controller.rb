@@ -7,9 +7,14 @@ class BodiesController < ApplicationController
   end
 
   def index
-    @bodies = policy_scope(Body).where(patient_id: params[:patient_id]).map do |body|
+    @bodies = policy_scope(Body).where(patient_id: params[:patient_id]).order(date_data_capture: :asc).map do |body|
       { body: body,
-        muscles: body.muscles }
+        muscles: body.muscles,
+        traitment: {
+          traitment: body.traitment,
+          note: body.note
+          }
+        }
     end
     @patient_id = @bodies.first[:body][:patient_id]
   end

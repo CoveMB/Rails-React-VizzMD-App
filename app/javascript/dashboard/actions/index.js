@@ -1,5 +1,12 @@
 import * as actionsType from './actionsTypes';
 
+export function setTraitment(traitment) {
+  return {
+    type: actionsType.SET_TRAITMENT,
+    payload: traitment
+  };
+}
+
 export function flipBody(face) {
   return {
     type: actionsType.FLIP_BODY,
@@ -36,12 +43,5 @@ export function changeMuscleForce(force, muscleInfo, musclesState) {
   return {
     type: actionsType.MUSCLE_FORCE_CHANGED,
     payload: newMuscles
-  };
-}
-
-export function pageLoaded() {
-  return {
-    type: actionsType.PAGE_LOADED,
-    payload: false
   };
 }

@@ -8,10 +8,10 @@ const topActions = (props) => {
   return (
     <Fragment>
       <div className="top-actions">
-        <BodySelect />
-      </div>
-      <div className="print-n-save">
         <PrintBtn setPrinting={props.setPrinting} />
+        <div className="flip=btns">
+          <BodySelect />
+        </div>
         <SaveBtn function="save" />
       </div>
     </Fragment>

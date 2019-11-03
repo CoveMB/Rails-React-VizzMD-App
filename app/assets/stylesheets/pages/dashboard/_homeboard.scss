@@ -49,6 +49,8 @@
   border-radius: 6px;
   width: 75%;
   padding: 20px 15px 15px 15px;
+  height: 70vh;
+  overflow-x: scroll;
 }
 
 .patient-list-link{
@@ -71,6 +73,10 @@
 .patient-separator{
   width: 80%;
   border-bottom: 1px solid $white;
+}
+
+.form-control-label{
+  display: none;
 }
 
 .patient-icon{

@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
+import parseISO from 'date-fns/parseISO'
 
 import musclesOrigin from '../../../data/muscles';
 
@@ -9,6 +10,10 @@ const saveBtn = (props) => {
 
   const muscles = useSelector((state) => {
     return state.muscles;
+  });
+
+  const traitment = useSelector((state) => {
+    return state.traitment;
   });
 
   const patientId = dashboard.dataset.patient
@@ -56,7 +61,7 @@ const saveBtn = (props) => {
         'X-CSRF-Token': csrfToken
       },
       credentials: 'same-origin',
-      body: JSON.stringify({muscles: muscles})
+      body: JSON.stringify({muscles: muscles, traitment: traitment})
     });
     return response
   }
@@ -72,7 +77,7 @@ const saveBtn = (props) => {
         'X-CSRF-Token': csrfToken
       },
       credentials: 'same-origin',
-      body: JSON.stringify({muscles: muscles})
+      body: JSON.stringify({muscles: muscles, traitment: traitment})
     });
     return response
   }
@@ -96,7 +101,9 @@ const saveBtn = (props) => {
 
   const handleClickBtn = () => {
     const firstMusclesState = getInitialMuscleState()
-    if (JSON.stringify(muscles) === JSON.stringify(firstMusclesState)){
+    const firstTraitmentSate = JSON.parse(dashboard.dataset.traitment);
+    firstTraitmentSate.date = parseISO(firstTraitmentSate.date)
+    if (JSON.stringify(muscles) === JSON.stringify(firstMusclesState) && JSON.stringify(firstTraitmentSate) === JSON.stringify(traitment)){
       alert("Unchanged values")
     } else {
       handleSwitchCreateUpdate()

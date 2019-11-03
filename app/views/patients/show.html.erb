@@ -2,4 +2,4 @@
   <h2 className="patient-ref" id="rotate">Patient: <%= @patient.hospital_patient_id %></h2>
   <h3><%= link_to "See Evolution", user_patient_bodies_path(current_user, @patient), class: "evolution-link", id:"not-to-be-printed" %></h3>
 </div>
-<div id=dashboard data-user='[{"id":<%=current_user.id%>,"token":"<%=current_user.authentication_token %>","email":"<%=current_user.email%>"}]' data-save="<%= @save %>" data-patient="<%= @patient.id %>" data-muscles="<%= @patient.bodies.last.muscles.to_json %>"></div>
+<div id=dashboard data-user='[{"id":<%=current_user.id%>,"token":"<%=current_user.authentication_token %>","email":"<%=current_user.email%>"}]' data-save="<%= @save %>" data-patient="<%= @patient.id %>" data-muscles="<%= @patient.bodies.last.muscles.to_json %>" data-traitment='{"traitment":"<%=@patient.bodies.last.traitment%>","note":"<%=@patient.bodies.last.note%>","date":"<%=@patient.bodies.last.date_data_capture%>"}'></div>
