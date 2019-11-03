@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only:[] do
         resources :patients, only:[:show]do
-          resources :bodies, only:[ :create ]
+          resources :bodies, only:[ :create, :update ]
         end
       end
     end

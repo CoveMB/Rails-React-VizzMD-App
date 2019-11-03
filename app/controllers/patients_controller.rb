@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
+    @save = "create"
     authorize @patient
   end
 

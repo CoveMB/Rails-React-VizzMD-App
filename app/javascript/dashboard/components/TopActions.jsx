@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
-import PrintNSaveBtn from './printNSaveElements/PrintNSaveBtn';
+import SaveBtn from './printNSaveElements/SaveBtn';
+import PrintBtn from './printNSaveElements/PrintBtn';
 import BodySelect from '../containers/body/BodySelect';
 
 const topActions = (props) => {
@@ -10,8 +11,8 @@ const topActions = (props) => {
         <BodySelect />
       </div>
       <div className="print-n-save">
-        <PrintNSaveBtn function="print" setPrinting={props.setPrinting} />
-        <PrintNSaveBtn function="save" />
+        <PrintBtn setPrinting={props.setPrinting} />
+        <SaveBtn function="save" />
       </div>
     </Fragment>
   );

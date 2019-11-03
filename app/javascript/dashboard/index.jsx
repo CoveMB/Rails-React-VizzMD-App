@@ -16,10 +16,8 @@ if (dashboard) {
     return {...muscle, ...muscles[muscle.name]}
   });
 
-  const initialState = { muscles: musclesToSet, patientId: dashboard.dataset.patient, user: JSON.parse(dashboard.dataset.user)[0]};
-
   ReactDOM.render(
-    <Provider store={createStore(reducers, initialState) }>
+    <Provider store={createStore(reducers, { muscles: musclesToSet }) }>
       <App />
     </Provider>,
     dashboard
