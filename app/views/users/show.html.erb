@@ -23,7 +23,11 @@
   <div class="patient-list-wrapper scrollbarxcustom">
     <ul style="list-style-type:none">
       <% @patients.each do |patient| %>
-      <li class="patient-list-list"><i class="far fa-id-card patient-icon"></i><%= link_to patient.hospital_patient_id, user_patient_path(current_user, patient), class: "patient-list-link" %></li>
+      <li class="patient-list-list"><i class="far fa-id-card patient-icon"></i>
+        <%= patient.hospital_patient_id %>
+        <%= link_to "Evolution", user_patient_bodies_path(current_user, patient), class: "patient-list-link", id:"not-to-be-printed" %>
+        <%= link_to "New Snapshot", user_patient_path(current_user, patient), class: "patient-list-link" %>
+      </li>
       <hr class="patient-separator">
       <% end %>
     </ul>

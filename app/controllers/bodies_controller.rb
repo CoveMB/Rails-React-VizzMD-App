@@ -16,6 +16,6 @@ class BodiesController < ApplicationController
           }
         }
     end
-    @patient_id = @bodies.first[:body][:patient_id]
+    @patient = Patient.find(params[:patient_id])
   end
 end

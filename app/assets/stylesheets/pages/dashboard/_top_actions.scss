@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 38px;
   width: 100%;
   padding: 0 2% 0 2%;
 }
@@ -25,5 +25,14 @@
 }
 
 .evolution-link{
-  marging: 35px 35px 0;
+  color: $white;
+  padding: 15px 20px 15px 20px;
+}
+
+.top-no-react-element-right{
+  font-size: 22px;
+  margin-top: -1px;
+  background: $vizzzBlue;
+  padding: 8px 10px 15px 10px;
+  border-radius: 0 0 0 20px;
 }

@@ -51,12 +51,14 @@
   padding: 20px 15px 15px 15px;
   height: 70vh;
   overflow-x: scroll;
+  text-align: left;
 }
 
 .patient-list-link{
   text-align: center;
   color: $white;
-  font-size: 25px;
+  font-size: 23px;
+  padding: 0 10px;
 }
 
 .patient-list-link:hover{
@@ -64,10 +66,11 @@
 }
 
 .patient-list-list{
-  // text-align: center;
   height: 38px;
   width: 100%;
   color: $white;
+  font-size: 25px;
+  padding: 0 10px;
 }
 
 .patient-separator{
@@ -75,12 +78,8 @@
   border-bottom: 1px solid $white;
 }
 
-.form-control-label{
-  display: none;
-}
-
 .patient-icon{
   border: none;
   font-size: 25px;
-  margin: 0 20px 0 10%;
+  margin: 0 20px 0 0;
 }

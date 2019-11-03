@@ -52,3 +52,22 @@
   margin-right: 10%;
   text-align: right;
 }
+
+.form-control-label-add-patient{
+  display: none;
+}
+
+#new_patient > div > label {
+  display: none;
+}
+
+.form-group-body {
+  border: 4px solid $vizzzBlue;
+  border-radius: 6px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.react-datepicker-popper{
+  left: -97px !important;
+}

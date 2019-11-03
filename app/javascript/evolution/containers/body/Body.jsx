@@ -3,7 +3,6 @@ import FaceBody from './FaceBody';
 import Moment from 'react-moment';
 
 const body = (props) => {
-  console.log(props);
   return (
     <div className="svg-body-date-timeline">
       <a className="svg-timeline" href={`/users/${props.bodyInfo.userId}/patients/${props.bodyInfo.patient_id}/bodies/${props.bodyInfo.id}`}>

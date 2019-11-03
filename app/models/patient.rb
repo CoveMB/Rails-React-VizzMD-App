@@ -4,7 +4,7 @@ class Patient < ApplicationRecord
 
   validates :hospital_patient_id, presence: true, uniqueness: { case_sensitive: false }
 
-  before_create do
-    bodies << Body.new
-  end
+  # before_create do
+  #   bodies << Body.new
+  # end
 end

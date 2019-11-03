@@ -46,7 +46,7 @@ class ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(user: user)
+        scope.all
       end
     end
   end

@@ -20,11 +20,9 @@ const saveBtn = (props) => {
 
   const user = JSON.parse(dashboard.dataset.user)[0]
 
-  const bodyId = muscles[0].body_id
-
   const getInitialMuscleState = () => {
     return JSON.parse(dashboard.dataset.muscles).map((muscle) => {
-      return {...muscle, ...musclesOrigin[muscle.name]}
+      return {...musclesOrigin[muscle.name], ...muscle}
     });
   }
 
@@ -32,14 +30,14 @@ const saveBtn = (props) => {
     switch (saveOption) {
       case "create":
         if(response.status === 201){
-          alert("New body snapshot created!")
+          window.location.href = `/users/${user.id}/patients/${patientId}/bodies`
         } else {
           alert("Sorry a problem occured")
         }
         break;
       case "update":
         if(response.status === 202){
-          alert("Snapshot's data has been saved!")
+          window.location.href = `/users/${user.id}/patients/${patientId}/bodies`
         } else {
           alert("Sorry a problem occured")
         }
@@ -67,6 +65,7 @@ const saveBtn = (props) => {
   }
 
   const saveUpdateBody = async () => {
+    const bodyId = muscles[0].body_id
     const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
     const response = await fetch(`/api/v1/users/${user.id}/patients/${patientId}/bodies/${bodyId}`,
     {
@@ -82,12 +81,25 @@ const saveBtn = (props) => {
     return response
   }
 
-  const handleSwitchCreateUpdate = () => {
+  const handleUpdate = () => {
+    const firstMusclesState = getInitialMuscleState()
+    const firstTraitmentSate = JSON.parse(dashboard.dataset.traitment);
+    firstTraitmentSate.date = parseISO(firstTraitmentSate.date)
+    console.log(JSON.stringify(muscles) === JSON.stringify(firstMusclesState));
+    console.log(JSON.stringify(firstTraitmentSate) === JSON.stringify(traitment));
+    if (JSON.stringify(muscles) === JSON.stringify(firstMusclesState) && JSON.stringify(firstTraitmentSate) === JSON.stringify(traitment)){
+      alert("Unchanged values")
+    } else {
+      saveUpdateBody().then(response => {
+        popUpResponseStatut(response, "update")
+      })
+    }
+  }
+
+  const handleClickBtn = () => {
     switch (dashboard.dataset.save) {
       case "update":
-        saveUpdateBody().then(response => {
-          popUpResponseStatut(response, "update")
-        })
+        handleUpdate()
         break;
       case "create":
         saveCreateBody().then(response => {
@@ -96,17 +108,6 @@ const saveBtn = (props) => {
         break;
       default:
         break;
-    }
-  }
-
-  const handleClickBtn = () => {
-    const firstMusclesState = getInitialMuscleState()
-    const firstTraitmentSate = JSON.parse(dashboard.dataset.traitment);
-    firstTraitmentSate.date = parseISO(firstTraitmentSate.date)
-    if (JSON.stringify(muscles) === JSON.stringify(firstMusclesState) && JSON.stringify(firstTraitmentSate) === JSON.stringify(traitment)){
-      alert("Unchanged values")
-    } else {
-      handleSwitchCreateUpdate()
     }
   };
 

@@ -12,7 +12,7 @@ if (evolution) {
   const userId = JSON.parse(evolution.dataset.user)[0].id
   const dataBodies = JSON.parse(evolution.dataset.bodies).map((body) => {
     const formatedMuscles = body.muscles.map((muscle) => {
-      return {...muscle, ...muscles[muscle.name]};
+      return {...muscles[muscle.name], ...muscle};
     });
     return {
       body: {...body.body, userId: userId},

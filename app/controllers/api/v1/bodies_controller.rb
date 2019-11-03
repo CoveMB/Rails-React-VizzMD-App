@@ -14,8 +14,8 @@ class Api::V1::BodiesController <  Api::V1::BaseController
       found_muscle.update(force_right: muscle[:force_right], force_left: muscle[:force_left])
     end
     create_traitment(@body_to_update)
-    p @body_to_update
     if @body_to_update.save
+      flash[:notice] = "Snapshot updated"
       render "api/v1/patients/show", status: :accepted
     else
       render_error
@@ -53,8 +53,6 @@ class Api::V1::BodiesController <  Api::V1::BaseController
     body.note = params[:traitment][:note]
     body.traitment = params[:traitment][:traitment]
     body.date_data_capture = params[:traitment][:date].to_date
-    p "****************************"
-    p body.date_data_capture
   end
 
   def render_error
