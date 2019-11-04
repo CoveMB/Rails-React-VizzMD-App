@@ -17,9 +17,7 @@ if (evolution) {
     return {
       body: {...body.body, userId: userId},
       muscles:formatedMuscles }
-  });;
-
-  console.log(dataBodies);
+  });
 
   ReactDOM.render(
 

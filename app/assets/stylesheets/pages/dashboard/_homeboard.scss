@@ -51,14 +51,14 @@
   padding: 20px 15px 15px 15px;
   height: 70vh;
   overflow-x: scroll;
-  text-align: left;
+  text-align: center;
 }
 
 .patient-list-link{
   text-align: center;
   color: $white;
   font-size: 23px;
-  padding: 0 10px;
+  padding: 0 0 0 7%;
 }
 
 .patient-list-link:hover{
@@ -82,4 +82,57 @@
   border: none;
   font-size: 25px;
   margin: 0 20px 0 0;
+}
+
+ul{
+  padding: 0;
+}
+
+@media only screen and (max-width: 770px) {
+  .dashboard-row{
+    display: block;
+    margin: 20px auto 20px auto;
+    align-items:flex-start;
+  }
+
+  .patient-list-wrapper{
+    margin: 20px auto 0 auto;
+      width: 100%;
+  }
+
+  .new-patient-wrapper{
+    width: 100%;
+    margin: 20px auto 20px auto;
+  }
+
+  .patient-list-link{
+    font-size: 1.3rem;
+  }
+
+  .patient-icon{
+    font-size: 1.3rem;
+  }
+
+  .patient-list-list{
+    font-size: 1.3rem;
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .patient-list-link{
+    font-size: 1rem;
+  }
+
+  .patient-icon{
+    font-size: 1rem;
+  }
+
+  .patient-list-list{
+    font-size: 1rem;
+  }
+
+  .welcome-text{
+    font-size: 1.3rem;
+  }
 }

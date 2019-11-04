@@ -14,7 +14,7 @@
 }
 
 .body-select{
-  width: 22%;
+  // width: 22%;
   display: flex;
   justify-content: space-around;
 }
@@ -35,4 +35,38 @@
   background: $vizzzBlue;
   padding: 8px 10px 15px 10px;
   border-radius: 0 0 0 20px;
+}
+
+.flip-btns{
+  margin-left: -3%;
+}
+
+@media only screen and (max-width: 720px) {
+  .patient-ref{
+    font-size: 1.4rem;
+  }
+
+  .evolution-link{
+    font-size: 1rem;
+  }
+
+  .top-no-react-element-right{
+    font-size: 1rem;
+  }
+
+}
+
+@media only screen and (max-width: 525px) {
+  .patient-ref{
+    font-size: 1rem;
+  }
+
+  .evolution-link{
+    font-size: 0.8rem;
+  }
+
+  .top-no-react-element-right{
+    font-size: 0.8rem;
+  }
+
 }

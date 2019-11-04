@@ -1,0 +1,52 @@
+.homepage-title{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: $vizzzBlue;
+}
+
+.homepage-subtitle{
+  margin: 10px auto 30px auto;
+  text-align: center;
+  font-size: 1.4rem;
+  color: $vizzzBlue;
+}
+
+.steps-wrapper-row{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.step-card{
+  margin: 30px 0 30px 0;
+  width: 30%;
+  color: $vizzzBlue;
+}
+
+.step-title{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.homepage-step-number{
+  border: 5px solid $vizzzBlue;
+  border-radius: 45px;
+  width: 50px;
+  height: 50px;
+  padding: 0 0 5px 10px;
+  margin-right: 15px;
+}
+
+.step-image{
+  margin-top: 10px;
+  width: 100%;
+  transition:transform 0.25s ease;
+}
+
+.step-image:hover{
+  -webkit-transform:scale(2); /* or some other value */
+    transform:scale(2);
+}

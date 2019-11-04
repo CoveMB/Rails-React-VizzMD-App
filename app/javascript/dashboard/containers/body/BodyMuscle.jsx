@@ -9,15 +9,15 @@ const bodyMusclesCouple = (props) => {
   const muscleFillColor = () => {
     switch (props.muscleForce) {
       case 1:
-        return "#EEF5CF";
+        return "#FF0000";
       case 2:
-        return "#E7D18B";
+        return "#FA7F01";
       case 3:
-        return "#E0AB69";
+        return "#FFFF00";
       case 4:
-        return "#D65B35";
+        return "#D4FF00";
       case 5:
-        return "#CD000F";
+        return "#00FF00";
       default:
         return "#FFFFFF";
     }

@@ -16,33 +16,33 @@
 }
 
 .one-force{
-  background-color: #EEF5CF;
-  fill: #EEF5CF;
+  background-color: #FF0000;
+  fill: #FF0000;
   color: black;
 }
 
 .two-force{
-  background-color: #E7D18B;
-  fill: #E7D18B;
+  background-color: #FA7F01;
+  fill: #FA7F01;
   color: black;
 }
 
 .three-force{
-  background-color: #E0AB69;
-  fill: #E0AB69;
+  background-color: #FFFF00;
+  fill: #FFFF00;
   color: black;
 }
 
 .four-force{
-  background-color: #D65B35;
-  fill: #D65B35;
+  background-color: #D4FF00;
+  fill: #D4FF00;
   color: black;
 }
 
 
 .five-force{
-  background-color: #CD000F;
-  fill: #CD000F;
+  background-color: #00FF00;
+  fill: #00FF00;
   color: black;
 }
 
@@ -52,4 +52,20 @@
   text-align: center;
   margin: 0;
   padding: 15px;
+}
+
+@media only screen and (max-width: 720px) {
+  .scale{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .scale * {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 0.6rem;
+  }
 }
