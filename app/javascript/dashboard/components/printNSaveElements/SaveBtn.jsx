@@ -9,11 +9,12 @@ import useHttp from '../../../hooks/http';
 import musclesOrigin from '../../../data/muscles';
 
 const saveBtn = () => {
+  console.log("rendering save btn");
   const muscles = useSelector((state) => state.muscles);
 
   const traitment = useSelector((state) => state.traitment);
 
-  const { sendDataToServer } = useHttp();
+  const { sendDataToServer, httpLoadingState, dispatchHttpLoading } = useHttp();
 
   const user = JSON.parse(dashboard.dataset.user)[0];
 
@@ -34,6 +35,7 @@ const saveBtn = () => {
       navigateTo(`/users/${user.id}/patients/${patientId}/bodies`);
     } else {
       alertError("Sorry a problem occured");
+      dispatchHttpLoading(false);
     }
   };
 
@@ -81,10 +83,18 @@ const saveBtn = () => {
   };
 
   return (
-    <button id="gta-print-btn" type="submit" className="btn btn-blue print-btn" onClick={() => { handleClickBtn(); }}>
-Save
-      <FontAwesomeIcon icon={faSave} />
-    </button>
+    <div>
+      {httpLoadingState ? (
+        <button id="gta-print-btn" type="submit" className="btn btn-blue print-btn">
+      Saving...
+        </button>
+      ) : (
+        <button id="gta-print-btn" type="submit" className="btn btn-blue print-btn" onClick={() => { handleClickBtn(); }}>
+          Save
+          <FontAwesomeIcon icon={faSave} />
+        </button>
+      ) }
+    </div>
   );
 };
 
