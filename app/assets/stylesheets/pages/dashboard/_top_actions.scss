@@ -14,7 +14,6 @@
 }
 
 .body-select{
-  // width: 22%;
   display: flex;
   justify-content: space-around;
 }
@@ -27,6 +26,10 @@
 .evolution-link{
   color: $white;
   padding: 15px 20px 15px 20px;
+}
+
+.evolution-link:hover{
+  color: $white;
 }
 
 .top-no-react-element-right{

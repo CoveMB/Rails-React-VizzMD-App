@@ -3,18 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import parseISO from 'date-fns/parseISO';
+import Popup from "reactjs-popup";
 
 import useHttp from '../../../hooks/http';
 
 import musclesOrigin from '../../../data/muscles';
 
 const saveBtn = () => {
-  console.log("rendering save btn");
   const muscles = useSelector((state) => state.muscles);
 
   const traitment = useSelector((state) => state.traitment);
 
-  const { sendDataToServer, httpLoadingState, dispatchHttpLoading } = useHttp();
+  const {
+    sendDataToServer, httpLoadingState, httpErrorState, dispatchHttpError
+  } = useHttp();
 
   const user = JSON.parse(dashboard.dataset.user)[0];
 
@@ -22,22 +24,7 @@ const saveBtn = () => {
 
   const baseUrl = `/api/v1/users/${user.id}/patients/${patientId}/bodies`;
 
-  const navigateTo = () => {
-    window.location.href = `/users/${user.id}/patients/${patientId}/bodies`;
-  };
-
-  const alertError = (message) => {
-    alert(message);
-  };
-
-  const navigateOrError = (response) => {
-    if (response.status === 201 || response.status === 202) {
-      navigateTo(`/users/${user.id}/patients/${patientId}/bodies`);
-    } else {
-      alertError("Sorry a problem occured");
-      dispatchHttpLoading(false);
-    }
-  };
+  const navigateToUrl = `/users/${user.id}/patients/${patientId}/bodies`;
 
   const getInitialMuscleState = () => {
     return JSON.parse(dashboard.dataset.muscles).map((muscle) => {
@@ -69,13 +56,13 @@ const saveBtn = () => {
       case "update":
         if (checkIfStateChanged(dataForServer)) {
           const url = `${baseUrl}/${dataForServer.muscles[0].body_id}`;
-          sendDataToServer(url, "PATCH", dataForServer).then((reponse) => navigateOrError(reponse));
+          sendDataToServer(url, "PATCH", dataForServer, navigateToUrl);
         } else {
-          alertError("Unchanged values");
+          dispatchHttpError({ errorState: true, errorMessage: "Unchaged values" });
         }
         break;
       case "create":
-        sendDataToServer(baseUrl, "POST", dataForServer).then((reponse) => navigateOrError(reponse));
+        sendDataToServer(baseUrl, "POST", dataForServer, navigateToUrl);
         break;
       default:
         break;
@@ -94,6 +81,16 @@ const saveBtn = () => {
           <FontAwesomeIcon icon={faSave} />
         </button>
       ) }
+      <Popup
+        modal
+        position="right center"
+        open={httpErrorState.errorState}
+        onClose={() => { dispatchHttpError({ errorState: false, errorMessage: "" }); }}
+      >
+        <div className="gradient-square">
+          <h5 className="gradient-square-text">{httpErrorState.errorMessage}</h5>
+        </div>
+      </Popup>
     </div>
   );
 };
