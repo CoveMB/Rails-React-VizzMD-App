@@ -1,20 +1,21 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import SaveBtn from './printNSaveElements/SaveBtn';
 import PrintBtn from './printNSaveElements/PrintBtn';
 import BodySelect from '../containers/body/BodySelect';
 
 const topActions = (props) => {
+  const { dashboard, setPrinting } = props;
   return (
-    <Fragment>
+    <>
       <div className="top-actions">
-        <PrintBtn setPrinting={props.setPrinting} />
+        <PrintBtn setPrinting={setPrinting} />
         <div className="flip-btns">
           <BodySelect />
         </div>
-        <SaveBtn function="save" />
+        <SaveBtn function="save" dashboard={dashboard} />
       </div>
-    </Fragment>
+    </>
   );
 };
 

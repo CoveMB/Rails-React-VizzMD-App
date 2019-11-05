@@ -6,7 +6,6 @@ class PatientsController < ApplicationController
   end
 
   def create
-    p params
     @patient = Patient.new(hospital_patient_id: params[:patient][:hospital_patient_id])
     @patient.user = current_user
     authorize @patient

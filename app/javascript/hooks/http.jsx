@@ -33,6 +33,7 @@ const useHttp = () => {
           credentials: 'same-origin',
           body: JSON.stringify(dataForServer)
         });
+      console.log(response);
       navigateOrError(response, navigateToUrl);
     }
   );

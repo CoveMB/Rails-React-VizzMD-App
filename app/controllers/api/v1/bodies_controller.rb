@@ -5,7 +5,6 @@ class Api::V1::BodiesController <  Api::V1::BaseController
   ActionController::Parameters.permit_all_parameters = true
 
   def update
-    p params
     @body_to_update = Body.find(params[:id])
     @patient = Patient.find(params[:patient_id])
     authorize @patient
@@ -52,7 +51,7 @@ class Api::V1::BodiesController <  Api::V1::BaseController
   def create_traitment(body)
     body.note = params[:traitment][:note]
     body.traitment = params[:traitment][:traitment]
-    body.date_data_capture = params[:traitment][:date].to_date
+    body.date_data_capture = params[:traitment][:date].to_datetime
   end
 
   def render_error

@@ -9,7 +9,9 @@ import useHttp from '../../../hooks/http';
 
 import musclesOrigin from '../../../data/muscles';
 
-const saveBtn = () => {
+const saveBtn = (props) => {
+  const { dashboard } = props;
+
   const muscles = useSelector((state) => state.muscles);
 
   const traitment = useSelector((state) => state.traitment);
