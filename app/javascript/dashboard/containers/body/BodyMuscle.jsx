@@ -5,17 +5,16 @@ import { connect } from 'react-redux';
 import { selectMuscle } from '../../actions/index';
 
 const bodyMusclesCouple = (props) => {
-
   const muscleFillColor = () => {
     switch (props.muscleForce) {
       case 1:
         return "#FF0000";
       case 2:
-        return "#FA7F01";
+        return "#FA6401";
       case 3:
-        return "#FFFF00";
+        return "#FFC300";
       case 4:
-        return "#D4FF00";
+        return "#FFFF00";
       case 5:
         return "#00FF00";
       default:
