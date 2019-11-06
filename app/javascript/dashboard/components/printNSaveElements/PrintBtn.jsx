@@ -12,19 +12,18 @@ const printBtn = (props) => {
   const handleClickBtn = () => {
     props.setPrinting(true);
     setTimeout(() => {
-      const patientId = dashboard.dataset.patient;
-      document.title = `VizzMD_${patientId}_${moment(traitment.date).format('MM/DD/YYYY')}`;
+      const patientHospitalId = dashboard.dataset.hospitalId;
+      document.title = `${patientHospitalId}_${moment(traitment.date).format('MM/DD/YYYY')}_VizzMD`;
       window.print();
-    }, 100);
+    }, 200);
   };
 
   return (
-    <a>
-      <button id="gta-print-btn" className="btn btn-blue print-btn" onClick={() => { handleClickBtn(); }}>
+
+    <button id="gta-print-btn" className="btn btn-blue print-btn" onClick={() => { handleClickBtn(); }}>
 Print
-        <FontAwesomeIcon icon={faPrint} />
-      </button>
-    </a>
+      <FontAwesomeIcon icon={faPrint} />
+    </button>
   );
 };
 
