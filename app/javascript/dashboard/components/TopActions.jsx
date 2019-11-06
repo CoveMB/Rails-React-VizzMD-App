@@ -9,7 +9,7 @@ const topActions = (props) => {
   return (
     <>
       <div className="top-actions">
-        <PrintBtn setPrinting={setPrinting} />
+        <PrintBtn setPrinting={setPrinting} dashboard={dashboard} />
         <div className="flip-btns">
           <BodySelect />
         </div>

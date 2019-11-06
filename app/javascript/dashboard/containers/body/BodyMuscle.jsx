@@ -28,7 +28,7 @@ const bodyMusclesCouple = (props) => {
   };
 
   return (
-    <path id={props.muscleId} fill={muscleFillColor()} ref={(muscleSVG) => { muscleSVG = muscleSVG; }} onClick={handleClickMuscle} d={props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
+    <path id={props.muscleId} fill={muscleFillColor()} ref={(muscleSVG) => { muscleSVG = muscleSVG; }} onClick={handleClickMuscle} d={props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="8" />
   );
 };
 
