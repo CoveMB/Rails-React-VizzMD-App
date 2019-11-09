@@ -2,6 +2,30 @@
   width: 20%;
 }
 
+.scale-reflex{
+  display: flex;
+  justify-content: space-around;
+}
+
+.reflex-one{
+  background-color: #FF0000;
+  border-radius: 45px;
+  border: 2px solid $vizzzBlue;
+
+}
+
+.reflex-two{
+  background-color: #FFFF00;
+  border-radius: 45px;
+  border: 2px solid $vizzzBlue;
+}
+
+.reflex-three{
+  background-color: #00FF00;
+  border-radius: 45px;
+  border: 2px solid $vizzzBlue;
+}
+
 .scale * {
   text-align: center;
   width: 100%;

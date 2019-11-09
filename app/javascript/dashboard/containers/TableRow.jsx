@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { selectMuscle } from '../actions/index';
+import { selectElement } from '../actions/index';
 
 class TableRow extends Component {
   shouldComponentUpdate(nextProps) {
     return (this.props.rightForce !== nextProps.rightForce
-      ||
-      this.props.leftForce !== nextProps.leftForce);
+      || this.props.leftForce !== nextProps.leftForce);
   }
 
   handleClickMuscle = (event) => {
     event.persist();
-    this.props.selectMuscle(event.target.getAttribute('id'));
+    this.props.selectElement(event.target.getAttribute('id'));
   }
 
   btnForceClass = (force) => {
@@ -41,14 +40,26 @@ class TableRow extends Component {
   }
 
   render() {
-    const { name, nerf, root, rightForce, rightMuscleId, leftForce, leftMuscleId } = this.props;
+    const {
+      name, nerf, root, rightForce, rightMuscleId, leftForce, leftMuscleId
+    } = this.props;
     return (
-      <tr >
-        <td><button className={this.btnForceClass(rightForce)} id={rightMuscleId} onClick={this.handleClickMuscle}>{rightForce}<i className="arrow down" /></button></td>
+      <tr>
+        <td>
+          <button className={this.btnForceClass(rightForce)} id={rightMuscleId} onClick={this.handleClickMuscle}>
+            {rightForce}
+            <i className="arrow down" />
+          </button>
+        </td>
         <td>{name}</td>
         <td>{nerf}</td>
         <td>{root}</td>
-        <td><button className={this.btnForceClass(leftForce)} id={leftMuscleId} onClick={this.handleClickMuscle}>{leftForce}<i className="arrow down" /></button></td>
+        <td>
+          <button className={this.btnForceClass(leftForce)} id={leftMuscleId} onClick={this.handleClickMuscle}>
+            {leftForce}
+            <i className="arrow down" />
+          </button>
+        </td>
       </tr>
     );
   }
@@ -56,13 +67,13 @@ class TableRow extends Component {
 
 function mapStateToProps(state) {
   return {
-    selectedMuscle: state.selectedMuscle,
+    selectedElement: state.selectedElement,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { selectMuscle },
+    { selectElement },
     dispatch
   );
 }

@@ -4,19 +4,18 @@ import { connect } from 'react-redux';
 
 import { selectElement } from '../../actions/index';
 
-const bodyMuscle = (props) => {
-  const { muscleForce, muscleId, muscleSVGPath } = props;
-  const muscleFillColor = () => {
-    switch (muscleForce) {
+const bodyReflex = (props) => {
+  const {
+    reflexCx, reflexCy, reflexId, reflex
+  } = props;
+
+  const reflexFillColor = () => {
+    switch (reflex) {
       case 1:
         return "#FF0000";
       case 2:
-        return "#FA6401";
-      case 3:
-        return "#FFC300";
-      case 4:
         return "#FFFF00";
-      case 5:
+      case 3:
         return "#00FF00";
       default:
         return "#FFFFFF";
@@ -29,7 +28,19 @@ const bodyMuscle = (props) => {
   };
 
   return (
-    <path id={muscleId} fill={muscleFillColor()} onClick={handleClickMuscle} d={muscleSVGPath} stroke="#CD0F0F" strokeWidth="8" />
+    <circle
+      xmlns="http://www.w3.org/2000/svg"
+      onClick={handleClickMuscle}
+      fill={reflexFillColor()}
+      id={reflexId}
+      cx={reflexCx}
+      cy={reflexCy}
+      r="26"
+      stroke="#054086"
+      strokeWidth="7"
+      cursor="pointer"
+      pointerEvents="visible"
+    />
   );
 };
 
@@ -40,4 +51,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(null, mapDispatchToProps)(bodyMuscle);
+export default connect(null, mapDispatchToProps)(bodyReflex);

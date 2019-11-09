@@ -7,7 +7,7 @@ import Popup from "reactjs-popup";
 
 import useHttp from '../../../hooks/http';
 
-import musclesOrigin from '../../../data/muscles';
+import bodySvgData from '../../../data/bodySvgData';
 
 const saveBtn = (props) => {
   const { dashboard } = props;
@@ -30,7 +30,7 @@ const saveBtn = (props) => {
 
   const getInitialMuscleState = () => {
     return JSON.parse(dashboard.dataset.muscles).map((muscle) => {
-      return { ...musclesOrigin[muscle.name], ...muscle };
+      return { ...bodySvgData.muscles[muscle.name], ...muscle };
     });
   };
 

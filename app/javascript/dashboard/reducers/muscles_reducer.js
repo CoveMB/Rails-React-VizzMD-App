@@ -1,4 +1,4 @@
-import { MUSCLE_FORCE_CHANGED, SAVE_PATIENT } from '../actions/actionsTypes';
+import { MUSCLE_FORCE_CHANGED } from '../actions/actionsTypes';
 
 export default function(state = null, action) {
   switch (action.type) {

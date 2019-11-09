@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,24 +6,30 @@ import { faUndo, faRedo } from '@fortawesome/free-solid-svg-icons';
 
 import { flipBody } from '../../actions/index';
 
-const bodySelect= (props) => {
+const bodySelect = (props) => {
   const handleBodyFlip = (event) => {
-    if (event.target.innerText === " Back") {
+    if (event.target.id === "Back") {
       props.flipBody("back");
     }
-    if (event.target.innerText === "Front ") {
+    if (event.target.id === "Front") {
       props.flipBody("front");
     }
   };
 
 
-    return (
-      <Fragment>
-        <button className="btn btn-blue" onClick={handleBodyFlip}>Front <FontAwesomeIcon icon={faRedo} /></button>
-        <button className="btn btn-blue" onClick={handleBodyFlip}><FontAwesomeIcon icon={faUndo} /> Back</button>
-      </Fragment>
-    );
-
+  return (
+    <>
+      <button type="button" id="Front" className="btn btn-blue" onClick={handleBodyFlip}>
+Front
+        <FontAwesomeIcon icon={faRedo} />
+      </button>
+      <button type="button" id="Back" className="btn btn-blue" onClick={handleBodyFlip}>
+        <FontAwesomeIcon icon={faUndo} />
+        {' '}
+Back
+      </button>
+    </>
+  );
 };
 
 function mapStateToProps(state) {

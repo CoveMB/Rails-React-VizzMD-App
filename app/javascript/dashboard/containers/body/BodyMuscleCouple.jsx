@@ -1,31 +1,30 @@
-import React, { Component, memo } from 'react';
+import React, { memo } from 'react';
 import BodyMuscle from './BodyMuscle';
 
 const bodyMusclesCouple = (props) => {
-
   const {
     muscleName,
     muscleRightSVGPath,
     muscleRightForce,
     muscleLeftSVGPath,
-    muscleLeftForce } = props;
+    muscleLeftForce
+  } = props;
   return (
     [
       <BodyMuscle
-        key={`${muscleName}-right`}
-        muscleId={`${muscleName}-right`}
+        key={`${muscleName}-right-muscle`}
+        muscleId={`${muscleName}-right-muscle`}
         muscleSVGPath={muscleRightSVGPath}
         muscleForce={muscleRightForce}
       />,
       <BodyMuscle
-        key={`${muscleName}-left`}
-        muscleId={`${muscleName}-left`}
+        key={`${muscleName}-left-muscle`}
+        muscleId={`${muscleName}-left-muscle`}
         muscleSVGPath={muscleLeftSVGPath}
         muscleForce={muscleLeftForce}
       />
     ]
   );
-
 };
 
 export default memo(bodyMusclesCouple);

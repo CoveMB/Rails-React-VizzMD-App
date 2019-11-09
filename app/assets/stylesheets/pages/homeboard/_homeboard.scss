@@ -51,14 +51,13 @@
   padding: 20px 15px 15px 15px;
   height: 70vh;
   overflow-x: scroll;
-  text-align: center;
+  text-align: start;
 }
 
 .patient-list-link{
   text-align: center;
   color: $white;
   font-size: 23px;
-  padding: 0 0 0 7%;
 }
 
 .patient-list-link:hover{
@@ -66,15 +65,19 @@
 }
 
 .patient-list-list{
-  height: 38px;
-  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 48px;
+  width: 95%;
   color: $white;
   font-size: 25px;
-  padding: 0 10px;
+  padding: 0 10%;
 }
 
 .patient-separator{
-  width: 80%;
+  width: 90%;
   border-bottom: 1px solid $white;
 }
 
@@ -88,7 +91,7 @@ ul{
   padding: 0;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 800px) {
   .dashboard-row{
     display: block;
     margin: 20px auto 20px auto;
@@ -97,7 +100,8 @@ ul{
 
   .patient-list-wrapper{
     margin: 20px auto 0 auto;
-      width: 100%;
+    height: 55vh;
+    width: 100%;
   }
 
   .new-patient-wrapper{
@@ -120,16 +124,31 @@ ul{
 
 
 @media only screen and (max-width: 480px) {
+  .new-patient-header{
+    font-size: 16px;
+  }
+
+  .dashboard-row-search{
+    margin: 0 auto;
+  }
+
+  .new-patient-wrapper{
+    margin: 10px auto;
+  }
+
   .patient-list-link{
     font-size: 1rem;
   }
 
   .patient-icon{
     font-size: 1rem;
+    margin: 0 0 0 0;
   }
 
   .patient-list-list{
     font-size: 1rem;
+    padding: 0 5px;
+    height: 30px;
   }
 
   .welcome-text{

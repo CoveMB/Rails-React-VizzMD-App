@@ -14,9 +14,9 @@ export function flipBody(face) {
   };
 }
 
-export function selectMuscle(muscleName) {
+export function selectElement(muscleName) {
   return {
-    type: actionsType.MUSCLE_SELECTED,
+    type: actionsType.ELEMENT_SELECTED,
     payload: muscleName
   };
 }
@@ -43,5 +43,30 @@ export function changeMuscleForce(force, muscleInfo, musclesState) {
   return {
     type: actionsType.MUSCLE_FORCE_CHANGED,
     payload: newMuscles
+  };
+}
+
+export function changeReflex(reflex, reflexInfo, reflexesState) {
+  const [name, side] = reflexInfo.split("-");
+  const newReflexes = reflexesState.map((reflexObj) => {
+    if (reflexObj.name === name) {
+      if (side === "right") {
+        return {
+          ...reflexObj,
+          reflex_right: Number(reflex)
+        };
+      } if (side === "left") {
+        return {
+          ...reflexObj,
+          reflex_left: Number(reflex)
+        };
+      }
+    }
+    return reflexObj;
+  });
+
+  return {
+    type: actionsType.REFLEX_CHANGED,
+    payload: newReflexes
   };
 }

@@ -1,6 +1,6 @@
 import React, { useState, lazy, Suspense } from 'react';
 
-import MusclePopUp from '../containers/MusclePopUp';
+import ScalePopUp from '../containers/ScalePopUp';
 import TopActions from './TopActions';
 import Scale from "./Scale";
 import Body from '../containers/body/Body';
@@ -30,7 +30,7 @@ const App = (props) => {
         : (
           <>
             <TopActions setPrinting={setPrinting} dashboard={dashboard} />
-            <MusclePopUp />
+            <ScalePopUp />
             <div className="scale-body">
               <Scale />
               <Body />
