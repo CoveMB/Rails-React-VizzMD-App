@@ -1,9 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-const bodyMusclesCouple = (props) => {
+const bodyMuscle = (props) => {
+  const { muscleId, muscleSVGPath, muscleForce } = props;
 
   const muscleFillColor = () => {
-    switch (props.muscleForce) {
+    switch (muscleForce) {
       case 1:
         return "#FF0000";
       case 2:
@@ -20,8 +21,8 @@ const bodyMusclesCouple = (props) => {
   };
 
   return (
-    <path id={props.muscleId} fill={muscleFillColor()} ref={(muscleSVG) => { muscleSVG = muscleSVG; }} d={props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
+    <path id={muscleId} fill={muscleFillColor()} d={muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
   );
 };
 
-export default memo(bodyMusclesCouple);
+export default bodyMuscle;

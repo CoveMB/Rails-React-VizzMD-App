@@ -3,6 +3,7 @@ require 'date'
 class Body < ApplicationRecord
   belongs_to :patient
   has_many :muscles, dependent: :destroy
+  has_many :reflexes, dependent: :destroy
 
   after_create do
     if muscles.empty?
@@ -10,6 +11,15 @@ class Body < ApplicationRecord
       new_muscles.each do |muscle|
         muscles << Muscle.new(muscle)
       end
+    end
+  end
+
+  before_save do
+    if reflexes.empty?
+      new_reflexes = [{ name: "Bicipal" }, { name: "Stylo Radial" }, { name: "Rotulien" }, { name: "Achileen" }, { name: "Tricipital" }]
+    end
+    new_reflexes.each do |reflex|
+      reflexes << Reflex.new(reflex)
     end
   end
 end

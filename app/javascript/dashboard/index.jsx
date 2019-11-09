@@ -21,6 +21,8 @@ if (dashboard) {
     return bodySvgData.reflexes[reflexKey];
   });
 
+  console.log(reflexesToSet);
+
   let traitmentToSet = { traitment: "", note: "", date: new Date() };
 
 
@@ -29,8 +31,9 @@ if (dashboard) {
       return { ...bodySvgData.muscles[muscle.name], ...muscle };
     });
     if (dashboard.dataset.reflexes) {
+      console.log(JSON.parse(dashboard.dataset.reflexes));
       reflexesToSet = JSON.parse(dashboard.dataset.reflexes).map((reflex) => {
-        return { ...bodySvgData.reflex[reflex.name], ...reflex };
+        return { ...bodySvgData.reflexes[reflex.name], ...reflex };
       });
     }
     const action = dashboard.dataset.save;

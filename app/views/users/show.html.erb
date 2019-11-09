@@ -26,7 +26,7 @@
       <li class="patient-list-list"><i class="far fa-id-card patient-icon"></i>
         <%= patient.hospital_patient_id %>
         <%= link_to "Evolution", user_patient_bodies_path(current_user, patient), class: "patient-list-link", id:"not-to-be-printed" %>
-        <%= link_to "New Snapshot", user_patient_path(current_user, patient), class: "patient-list-link" %>
+        <%= link_to "New Snapshot", new_user_patient_body_path(current_user, patient), class: "patient-list-link" %>
       </li>
       <hr class="patient-separator">
       <% end %>

@@ -37,7 +37,7 @@ const ScalePopUp = (props) => {
         reflexes
       );
     }
-    props.selectElement(null);
+    props.selectElement("");
   };
 
   const isMuscleOrReflexSelected = () => {

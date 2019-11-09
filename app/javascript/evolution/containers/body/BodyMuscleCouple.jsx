@@ -1,14 +1,14 @@
-import React, { Component, memo } from 'react';
+import React, { memo } from 'react';
 import BodyMuscle from './BodyMuscle';
 
 const bodyMusclesCouple = (props) => {
-
   const {
     muscleName,
     muscleRightSVGPath,
     muscleRightForce,
     muscleLeftSVGPath,
-    muscleLeftForce } = props;
+    muscleLeftForce
+  } = props;
   return (
     [
       <BodyMuscle
@@ -25,7 +25,6 @@ const bodyMusclesCouple = (props) => {
       />
     ]
   );
-
 };
 
 export default memo(bodyMusclesCouple);

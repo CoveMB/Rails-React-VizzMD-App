@@ -10,13 +10,15 @@ const evolution = document.getElementById('evolution');
 
 if (evolution) {
   const userId = JSON.parse(evolution.dataset.user)[0].id;
+
   const dataBodies = JSON.parse(evolution.dataset.bodies).map((body) => {
     const formatedMuscles = body.muscles.map((muscle) => {
       return { ...bodySvgData.muscles[muscle.name], ...muscle };
     });
     const formatedReflexes = body.reflexes.map((reflex) => {
-      return { ...bodySvgData.muscles[reflex.name], ...reflex };
+      return { ...bodySvgData.reflexes[reflex.name], ...reflex };
     });
+    console.log(formatedReflexes);
     return {
       body: { ...body.body, userId },
       muscles: formatedMuscles,
@@ -26,7 +28,7 @@ if (evolution) {
 
   ReactDOM.render(
 
-    <App allBodiesMuscles={dataBodies} />,
+    <App allBodiesElement={dataBodies} />,
     evolution
   );
 }
