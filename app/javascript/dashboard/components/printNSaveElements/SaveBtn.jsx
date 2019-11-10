@@ -14,6 +14,8 @@ const saveBtn = (props) => {
 
   const muscles = useSelector((state) => state.muscles);
 
+  const reflexes = useSelector((state) => state.reflexes);
+
   const traitment = useSelector((state) => state.traitment);
 
   const {
@@ -34,6 +36,12 @@ const saveBtn = (props) => {
     });
   };
 
+  const getInitialReflexesState = () => {
+    return JSON.parse(dashboard.dataset.reflexes).map((reflex) => {
+      return { ...bodySvgData.reflexes[reflex.name], ...reflex };
+    });
+  };
+
   const getInitialTraitmentState = () => {
     const firstTraitmentSate = JSON.parse(dashboard.dataset.traitment);
     firstTraitmentSate.date = parseISO(firstTraitmentSate.date);
@@ -42,18 +50,25 @@ const saveBtn = (props) => {
 
   const getInitialState = () => {
     const firstMusclesState = getInitialMuscleState();
+    const firstReflexesState = getInitialReflexesState();
     const firstTraitmentSate = getInitialTraitmentState();
-    return { muscles: firstMusclesState, traitment: firstTraitmentSate };
+    return {
+      muscles: firstMusclesState,
+      reflexes: firstReflexesState,
+      traitment: firstTraitmentSate
+    };
   };
 
   const checkIfStateChanged = (actualState) => {
     const initialState = getInitialState();
+    console.log(initialState);
+    console.log(actualState);
     return !(JSON.stringify(initialState) === JSON.stringify(actualState));
   };
 
   const handleClickBtn = () => {
     const action = dashboard.dataset.save;
-    const dataForServer = { muscles, traitment };
+    const dataForServer = { muscles, reflexes, traitment };
     switch (action) {
       case "update":
         if (checkIfStateChanged(dataForServer)) {

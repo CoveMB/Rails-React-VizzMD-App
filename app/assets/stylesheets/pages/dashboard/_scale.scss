@@ -1,36 +1,42 @@
 .scale{
   width: 20%;
+  padding-right: 10%;
 }
 
 .scale-reflex{
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
 }
 
 .reflex-one{
   background-color: #FF0000;
   border-radius: 45px;
   border: 2px solid $vizzzBlue;
-
+  height: 50px !important;
+  width: 50px !important;
 }
 
 .reflex-two{
   background-color: #FFFF00;
   border-radius: 45px;
   border: 2px solid $vizzzBlue;
+  height: 50px !important;
+  width: 50px !important;
 }
 
 .reflex-three{
   background-color: #00FF00;
   border-radius: 45px;
   border: 2px solid $vizzzBlue;
+  height: 50px !important;
+  width: 50px !important;
 }
 
 .scale * {
   text-align: center;
   width: 100%;
   margin: 0;
-  padding: 15px;
 }
 
 .zero-force{
@@ -83,6 +89,22 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    align-items: baseline;
+  }
+
+  .reflex-one{
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .reflex-two{
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .reflex-three{
+    height: 20px !important;
+    width: 20px !important;
   }
 
   .scale * {

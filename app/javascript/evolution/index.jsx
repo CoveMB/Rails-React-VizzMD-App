@@ -18,7 +18,6 @@ if (evolution) {
     const formatedReflexes = body.reflexes.map((reflex) => {
       return { ...bodySvgData.reflexes[reflex.name], ...reflex };
     });
-    console.log(formatedReflexes);
     return {
       body: { ...body.body, userId },
       muscles: formatedMuscles,

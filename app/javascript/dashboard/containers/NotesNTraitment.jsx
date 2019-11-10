@@ -39,7 +39,7 @@ const notesNTraitment = () => {
         <textarea className="form-control" id="notes" rows="3" onChange={(event) => { handleInput(event, "note"); }} value={traitment.note} />
       </div>
       <div className="form-group form-group-body">
-        <label htmlFor="traitment">Traitment:</label>
+        <label htmlFor="traitment">Evaluation:</label>
         <textarea className="form-control" id="traitment" rows="3" onChange={(event) => { handleInput(event, "traitment"); }} value={traitment.traitment} />
       </div>
     </form>
