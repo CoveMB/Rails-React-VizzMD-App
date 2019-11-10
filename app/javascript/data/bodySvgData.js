@@ -80,9 +80,6 @@ const bodySvgData = {
     Bicipal: {
       reflex_right: 0, reflex_left: 0, name: 'Bicipal', svgRight: { cx: "164", cy: "980" }, svgLeft: { cx: "1180", cy: "980" }, view: "front"
     },
-    "Stylo Radial": {
-      reflex_right: 0, reflex_left: 0, name: 'Stylo Radial', svgRight: { cx: "65", cy: "1300" }, svgLeft: { cx: "1300", cy: "1300" }, view: "front"
-    },
     Rotulien: {
       reflex_right: 0, reflex_left: 0, name: 'Rotulien', svgRight: { cx: "290", cy: "2050" }, svgLeft: { cx: "1070", cy: "2050" }, view: "front"
     },
