@@ -25,12 +25,19 @@ const notesNTraitment = () => {
     dispatch(setTraitment({ ...traitment, date }));
   };
 
+  const checkIfDateIsValid = () => {
+    if (isNaN(traitment.date.getTime())) {
+      return new Date();
+    }
+    return traitment.date;
+  };
+
   return (
     <form className="form-notes">
       <div className="form-group form-group-body">
         <label htmlFor="notes">Date of data capture:</label>
         <DatePicker
-          selected={traitment.date}
+          selected={checkIfDateIsValid()}
           onChange={(date) => { handleDateInput(date); }}
         />
       </div>

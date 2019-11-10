@@ -1,6 +1,6 @@
 <div class="patient-n-evolution">
   <h2 class="patient-ref" id="rotate">Patient: <%= @patient.hospital_patient_id %></h2>
-  <h2 class="patient-ref" id="not-to-be-printed">New Snapshot</h2>
+  <h2 class="patient-ref" id="not-to-be-printed"><%= action == "update" ? "Update Evaluation" : "New Evaluation"%></h2>
   <h2 class="top-no-react-element-right"><%= link_to "See Evolution >", user_patient_bodies_path(current_user, @patient), class: "evolution-link", id:"not-to-be-printed" %></h2>
 </div>
 <div class="patient-details-wrapper">

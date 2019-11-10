@@ -10,6 +10,8 @@ const bodyReflexesCouple = (props) => {
     reflexLeftCy,
     reflexRight,
     reflexLeft,
+    reflexRightSVGPath,
+    reflexLeftSVGPath
   } = props;
 
   return (
@@ -20,6 +22,7 @@ const bodyReflexesCouple = (props) => {
         reflexCx={reflexRightCx}
         reflexCy={reflexRightCy}
         reflex={reflexRight}
+        reflexPath={reflexRightSVGPath}
       />,
       <BodyReflex
         key={`${reflexName}-left-reflex`}
@@ -27,6 +30,7 @@ const bodyReflexesCouple = (props) => {
         reflexCx={reflexLeftCx}
         reflexCy={reflexLeftCy}
         reflex={reflexLeft}
+        reflexPath={reflexLeftSVGPath}
       />
     ]
   );

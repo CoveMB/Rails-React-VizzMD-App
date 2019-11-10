@@ -38,6 +38,8 @@ class FaceBody extends Component {
           reflexRightCx={reflex.svgRight.cx}
           reflexLeftCx={reflex.svgLeft.cx}
           reflexRightCy={reflex.svgRight.cy}
+          reflexRightSVGPath={reflex.svgRight.path}
+          reflexLeftSVGPath={reflex.svgLeft.path}
           reflexLeftCy={reflex.svgLeft.cy}
           reflexRight={reflex.reflex_right}
           reflexLeft={reflex.reflex_left}

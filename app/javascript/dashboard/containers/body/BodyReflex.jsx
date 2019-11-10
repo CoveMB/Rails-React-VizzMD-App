@@ -6,7 +6,7 @@ import { selectElement } from '../../actions/index';
 
 const bodyReflex = (props) => {
   const {
-    reflexCx, reflexCy, reflexId, reflex
+    reflexCx, reflexCy, reflexId, reflex, reflexPath
   } = props;
 
   const reflexFillColor = () => {
@@ -22,25 +22,40 @@ const bodyReflex = (props) => {
     }
   };
 
-  const handleClickMuscle = (event) => {
+  const checkIfPlantarReflex = () => {
+    if (reflexId.split("-")[0] === "Plantar" && (reflex === 1 || reflex === 3)) {
+      if (reflex === 1) {
+        return <path id={reflexId} onClick={handleClickReflex} d={reflexPath.notGood} stroke="#CD0F0F" strokeWidth="12" />;
+      } if (reflex === 3) {
+        return <path id={reflexId} onClick={handleClickReflex} d={reflexPath.good} stroke="#00FF00" strokeWidth="12" />;
+      }
+    }
+    return (
+      <circle
+        xmlns="http://www.w3.org/2000/svg"
+        onClick={handleClickReflex}
+        fill={reflexFillColor()}
+        id={reflexId}
+        cx={reflexCx}
+        cy={reflexCy}
+        r="26"
+        stroke="#054086"
+        strokeWidth="7"
+        cursor="pointer"
+        pointerEvents="visible"
+      />
+    );
+  };
+
+  const handleClickReflex = (event) => {
     event.persist();
     props.selectElement(event.target.getAttribute('id'));
   };
 
   return (
-    <circle
-      xmlns="http://www.w3.org/2000/svg"
-      onClick={handleClickMuscle}
-      fill={reflexFillColor()}
-      id={reflexId}
-      cx={reflexCx}
-      cy={reflexCy}
-      r="26"
-      stroke="#054086"
-      strokeWidth="7"
-      cursor="pointer"
-      pointerEvents="visible"
-    />
+    <>
+      {checkIfPlantarReflex()}
+    </>
   );
 };
 

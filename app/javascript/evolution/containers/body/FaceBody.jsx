@@ -31,6 +31,8 @@ const FaceBody = (props) => {
           reflexLeftCy={reflex.svgLeft.cy}
           reflexRight={reflex.reflex_right}
           reflexLeft={reflex.reflex_left}
+          reflexRightSVGPath={reflex.svgRight.path}
+          reflexLeftSVGPath={reflex.svgLeft.path}
         />
       );
     });
