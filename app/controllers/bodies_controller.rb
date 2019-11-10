@@ -7,6 +7,7 @@ class BodiesController < ApplicationController
 
   def show
     @body = Body.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
     @save = "update"
     authorize @body
   end

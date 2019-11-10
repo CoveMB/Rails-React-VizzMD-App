@@ -2,11 +2,12 @@
   <ul style="list-style-type:none">
     <% @patients.each do |patient| %>
     <li class="patient-list-list"><i class="far fa-id-card patient-icon"></i>
-      <%= patient.hospital_patient_id %>
+      <h4 class=><%= patient.hospital_patient_id %><p class="patient-edit-btn" data-toggle="modal" data-target=<%= "#patient#{patient.id}EditModal" %>>(edit)</p></h4>
       <%= link_to "Evolution", user_patient_bodies_path(current_user, patient), class: "patient-list-link", id:"not-to-be-printed" %>
       <%= link_to "New Snapshot", new_user_patient_body_path(current_user, patient), class: "patient-list-link" %>
     </li>
     <hr class="patient-separator">
+      <%= render "patients/edit_modal", patient: patient, modal_data_target: "patient#{patient.id}EditModal" %>
     <% end %>
   </ul>
 </div>

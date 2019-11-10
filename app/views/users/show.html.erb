@@ -3,6 +3,9 @@
 </div>
 
 <div class="dashboard-row">
-  <%= render "users/new_patient_form",  patient: @patient %>
+  <div class="new-patient-wrapper">
+    <h2 class="new-patient-header">ADD NEW PATIENT</h2>
+    <%= render "patients/new_patient_form",  patient: @patient, url:nil %>
+  </div>
   <%= render "users/patient_list" %>
 </div>

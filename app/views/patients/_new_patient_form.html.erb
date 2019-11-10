@@ -1,0 +1,6 @@
+<%= simple_form_for patient, url: url do |form| %>
+  <%= form.input :hospital_patient_id, class: "form-control", placeholder: "Patient's id" , label: "Hospital's Patient ID", label_html: { class: "white-label-input" } %>
+  <%= form.input :date_of_birth, as: :date, html5: true, label_html: { class: "white-label-input" } %>
+  <%= form.input :gender, as: :radio_buttons, collection: [['female', 'Female'], ['male', 'Male']], label_method: :second, value_method: :first %>
+<%= form.button :submit, class: "btn btn-primary btn-add"%>
+<% end %>
