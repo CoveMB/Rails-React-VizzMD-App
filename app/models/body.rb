@@ -16,7 +16,7 @@ class Body < ApplicationRecord
 
   before_save do
     if reflexes.empty?
-      new_reflexes = [{ name: "Bicipal" }, { name: "Stylo Radial" }, { name: "Rotulien" }, { name: "Achileen" }, { name: "Tricipital" }]
+      new_reflexes = [{ name: "Bicipal" }, { name: "Rotulien" }, { name: "Achileen" }, { name: "Tricipital" }]
       new_reflexes.each do |reflex|
         reflexes << Reflex.new(reflex)
       end
