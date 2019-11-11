@@ -1,13 +1,13 @@
 class BodiesController < ApplicationController
+  before_action :set_patient, only: [:new, :show, :index]
+
   def new
-    @patient = Patient.find(params[:patient_id])
     @save = "create"
     authorize @patient
   end
 
   def show
     @body = Body.find(params[:id])
-    @patient = Patient.find(params[:patient_id])
     @save = "update"
     authorize @body
   end
@@ -19,7 +19,6 @@ class BodiesController < ApplicationController
     ).map do |body|
       construct_body_for_view(body)
     end
-    @patient = Patient.find(params[:patient_id])
   end
 
   private
@@ -34,5 +33,9 @@ class BodiesController < ApplicationController
         note: body.note,
         date: body.date_data_capture
       } }
+  end
+
+  def set_patient
+    @patient = Patient.find(params[:patient_id])
   end
 end
