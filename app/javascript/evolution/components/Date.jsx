@@ -1,10 +1,13 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Moment from 'react-moment';
 
 const date = () => {
   const dateToFormat = new Date();
   return (
-    <h2 className="patient-ref">Date: <Moment format="YYYY/MM/DD" date={dateToFormat} /></h2>
+    <h2 className="patient-ref">
+Date:
+      <Moment format="YYYY/MM/DD" date={dateToFormat} />
+    </h2>
   );
 };
 

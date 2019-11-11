@@ -4,10 +4,10 @@ class Api::V1::BodiesController <  Api::V1::BaseController
   acts_as_token_authentication_handler_for User, except: [:index]
   ActionController::Parameters.permit_all_parameters = true
 
+  before_action :set_patient, only: [ :create, :update ]
+
   def update
     @body_to_update = Body.find(params[:id])
-    @patient = Patient.find(params[:patient_id])
-    authorize @patient
     update_muscles
     update_reflexes
     create_traitment(@body_to_update)
@@ -20,8 +20,6 @@ class Api::V1::BodiesController <  Api::V1::BaseController
   end
 
   def create
-    @patient = Patient.find(params[:patient_id])
-    authorize @patient
     new_body = Body.new
     create_muscles(new_body)
     create_reflexes(new_body)
@@ -35,7 +33,34 @@ class Api::V1::BodiesController <  Api::V1::BaseController
     end
   end
 
+  def index
+    bodies = policy_scope(Body).where(patient_id: params[:patient_id]).order(
+      date_data_capture: :asc,
+      created_at: :asc
+    ).map do |body|
+      construct_body_for_view(body)
+    end
+    render json: bodies
+  end
+
   private
+
+  def set_patient
+    @patient = Patient.find(params[:patient_id])
+    authorize @patient
+  end
+
+  def construct_body_for_view(body)
+    { body: body,
+      muscles: body.muscles,
+      reflexes: body.reflexes,
+      traitment:
+      {
+        traitment: body.traitment,
+        note: body.note,
+        date: body.date_data_capture
+      } }
+  end
 
   def update_reflexes
     params[:reflexes].each do |reflex|

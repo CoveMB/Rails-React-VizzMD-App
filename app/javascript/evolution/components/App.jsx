@@ -5,13 +5,13 @@ import Body from '../containers/body/Body';
 const App = (props) => {
   return (
     <div className="timeline scrollbarycustom">
-      {props.allBodiesElement.map((bodymuscles, index) => {
+      {props.allBodiesElement.map((bodyElements, index) => {
         return (
           <Body
             key={index}
-            allBodiesMuscles={bodymuscles.muscles}
-            allBodiesReflexes={bodymuscles.reflexes}
-            bodyInfo={bodymuscles.body}
+            allBodiesMuscles={bodyElements.muscles}
+            allBodiesReflexes={bodyElements.reflexes}
+            bodyInfo={bodyElements.body}
             evaluationNumber={index + 1}
           />
         );

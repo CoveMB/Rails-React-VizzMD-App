@@ -19,7 +19,7 @@ const saveBtn = (props) => {
   const traitment = useSelector((state) => state.traitment);
 
   const {
-    sendDataToServer, httpLoadingState, httpErrorState, dispatchHttpError
+    sendRequestToServer, httpLoadingState, httpErrorState, dispatchHttpError
   } = useHttp();
 
   const user = JSON.parse(dashboard.dataset.user)[0];
@@ -61,8 +61,6 @@ const saveBtn = (props) => {
 
   const checkIfStateChanged = (actualState) => {
     const initialState = getInitialState();
-    console.log(initialState);
-    console.log(actualState);
     return !(JSON.stringify(initialState) === JSON.stringify(actualState));
   };
 
@@ -73,13 +71,13 @@ const saveBtn = (props) => {
       case "update":
         if (checkIfStateChanged(dataForServer)) {
           const url = `${baseUrl}/${dataForServer.muscles[0].body_id}`;
-          sendDataToServer(url, "PATCH", dataForServer, navigateToUrl);
+          sendRequestToServer(url, "PATCH", dataForServer, navigateToUrl);
         } else {
           dispatchHttpError({ errorState: true, errorMessage: "Unchaged values" });
         }
         break;
       case "create":
-        sendDataToServer(baseUrl, "POST", dataForServer, navigateToUrl);
+        sendRequestToServer(baseUrl, "POST", dataForServer, navigateToUrl);
         break;
       default:
         break;

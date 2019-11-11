@@ -1,0 +1,48 @@
+.compare-list-wrapper{
+  position: sticky;
+  top: 140px;
+  left: 0;
+  width: 20%;
+  height: 90vh;
+  background: linear-gradient(234.36deg, #003C89 67.31%, rgba(0, 60, 137, 0.87) 85.42%);
+  box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+  overflow-x: scroll;
+}
+
+.compare-list-header{
+  color: $white;
+  text-align: center;
+  position: sticky;
+  background: $vizzzBlue;
+  left: 0;
+  top: 0;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.compare-patient-hid{
+  color: $white;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.compare-patient-row{
+  display: flex;
+  align-items: baseline;
+  margin-left: 20px;
+  height: 40px;
+}
+
+.compare-patient-selected{
+  font-weight: bolder;
+  font-size: 26px;
+  text-decoration: underline;
+}
+
+.compare-list-drawer{
+  position: relative;
+  top:0;
+  left: 160px;
+  color: $white;
+
+}

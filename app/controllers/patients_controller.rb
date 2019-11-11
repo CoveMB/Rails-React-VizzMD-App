@@ -1,5 +1,9 @@
 class PatientsController < ApplicationController
 
+  def index
+    @patients = policy_scope(Patient).order(created_at: :desc)
+  end
+
   def create
     @patient = Patient.new(patient_params)
     @patient.user = current_user

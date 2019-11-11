@@ -16,7 +16,7 @@ const body = (props) => {
       <a className="svg-timeline" href={`/users/${bodyInfo.userId}/patients/${bodyInfo.patient_id}/bodies/${bodyInfo.id}`}>
         <FaceBody
           svgViewBox="-100 0 1700 2840"
-          svgHeight="300"
+          svgHeight="200"
           svgWidth="100"
           bodySide="back"
           muscles={allBodiesMuscles.filter((muscle) => muscle.view === "back")}
@@ -24,7 +24,7 @@ const body = (props) => {
         />
         <FaceBody
           svgViewBox="-100 0 1700 2830"
-          svgHeight="300"
+          svgHeight="200"
           svgWidth="100"
           bodySide="front"
           muscles={allBodiesMuscles.filter((muscle) => muscle.view === "front")}

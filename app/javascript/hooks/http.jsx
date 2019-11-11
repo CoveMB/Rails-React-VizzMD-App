@@ -18,27 +18,34 @@ const useHttp = () => {
     }
   };
 
-  const sendDataToServer = useCallback(
+  const sendRequestToServer = useCallback(
     async (url, method, dataForServer, navigateToUrl) => {
       dispatchHttpLoading(true);
       const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
-      const response = await fetch(url,
-        {
-          method,
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': csrfToken
-          },
-          credentials: 'same-origin',
-          body: JSON.stringify(dataForServer)
-        });
-      navigateOrError(response, navigateToUrl);
+      const options = {
+        method,
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': csrfToken
+        },
+        credentials: 'same-origin'
+      };
+      if (method === "PATCH" || method === " POST") {
+        options.body = JSON.stringify(dataForServer);
+      }
+      const response = await fetch(url, options);
+      if (navigateToUrl) {
+        navigateOrError(response, navigateToUrl);
+      }
+      const json = await response.json();
+      dispatchHttpLoading(false);
+      return json;
     }
   );
 
   return {
-    sendDataToServer,
+    sendRequestToServer,
     httpLoadingState,
     dispatchHttpError,
     httpErrorState

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :patients, only:[:create]
 
   resources :users, only:[:show] do
-    resources :patients, only:[:create, :update] do
+    resources :patients, only:[:create, :update, :index] do
       resources :bodies, only:[ :index, :show, :new ]
     end
   end
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only:[] do
         resources :patients, only:[:show]do
-          resources :bodies, only:[ :create, :update ]
+          resources :bodies, only:[ :create, :update, :index ]
         end
       end
     end
