@@ -12,8 +12,8 @@ class MusclesTabe extends Component {
     return this.props.muscles.map((muscleObj) => {
       return (
         <TableRow
-          rightMuscleId={`${muscleObj.name}-right`}
-          leftMuscleId={`${muscleObj.name}-left`}
+          rightMuscleId={`${muscleObj.name}-right-muscle`}
+          leftMuscleId={`${muscleObj.name}-left-muscle`}
           name={muscleObj.name}
           rightForce={muscleObj.force_right}
           nerf={muscleObj.nerf}

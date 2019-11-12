@@ -12,7 +12,7 @@ class TableRow extends Component {
 
   handleClickMuscle = (event) => {
     event.persist();
-    this.props.selectElement(event.target.getAttribute('id'));
+    this.props.selectElement(event.currentTarget.getAttribute('id'));
   }
 
   btnForceClass = (force) => {
@@ -45,8 +45,12 @@ class TableRow extends Component {
     } = this.props;
     return (
       <tr>
-        <td>
-          <button className={this.btnForceClass(rightForce)} id={rightMuscleId} onClick={this.handleClickMuscle}>
+        <td className="force-td">
+          <button
+            className={this.btnForceClass(rightForce)}
+            id={rightMuscleId}
+            onClick={this.handleClickMuscle}
+          >
             {rightForce}
             <i className="arrow down" />
           </button>
@@ -55,7 +59,11 @@ class TableRow extends Component {
         <td>{nerf}</td>
         <td>{root}</td>
         <td>
-          <button className={this.btnForceClass(leftForce)} id={leftMuscleId} onClick={this.handleClickMuscle}>
+          <button
+            className={this.btnForceClass(leftForce)}
+            id={leftMuscleId}
+            onClick={this.handleClickMuscle}
+          >
             {leftForce}
             <i className="arrow down" />
           </button>

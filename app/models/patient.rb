@@ -8,12 +8,8 @@ class Patient < ApplicationRecord
 
   validates :gender, inclusion: { in: ["male", "female"] }
 
-  before_save do
-    if date_of_birth.nil?
-      date_of_birth = Date.new(2001,2,3)
-    end
-    if gender.nil?
-      gender = ["male", "female"].sample
-    end
+  before_validation do
+    date_of_birth = Date.new(2001,2,3) if date_of_birth.nil?
+    gender = ["male", "female"].sample if gender.nil?
   end
 end

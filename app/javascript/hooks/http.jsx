@@ -14,7 +14,7 @@ const useHttp = () => {
       navigateTo(navigateToUrl);
     } else {
       dispatchHttpLoading(false);
-      dispatchHttpError({ errorState: false, errorMessage: "Sorry, an error occured on our server" });
+      dispatchHttpError({ errorState: true, errorMessage: `Sorry an ${response.statusText} happened` });
     }
   };
 
@@ -31,7 +31,7 @@ const useHttp = () => {
         },
         credentials: 'same-origin'
       };
-      if (method === "PATCH" || method === " POST") {
+      if (method === "PATCH" || method === "POST") {
         options.body = JSON.stringify(dataForServer);
       }
       const response = await fetch(url, options);
