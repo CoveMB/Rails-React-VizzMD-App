@@ -58,7 +58,7 @@ class TableRow extends Component {
         <td>{name}</td>
         <td>{nerf}</td>
         <td>{root}</td>
-        <td>
+        <td className="force-td">
           <button
             className={this.btnForceClass(leftForce)}
             id={leftMuscleId}
