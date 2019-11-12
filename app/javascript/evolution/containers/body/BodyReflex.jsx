@@ -33,9 +33,9 @@ const bodyReflex = (props) => {
           id={reflexId}
           cx={reflexCx}
           cy={reflexCy}
-          r="26"
+          r="60"
           stroke="#054086"
-          strokeWidth="7"
+          strokeWidth="10"
           cursor="pointer"
           pointerEvents="visible"
         />
